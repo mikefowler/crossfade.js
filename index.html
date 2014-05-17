@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cover</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			height: 4000px;
+		}
+		.cover {
+			height: 500px;
+			background: #f1f1f1;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="cover" data-image-start="demo/images/cover.jpg" data-image-end="demo/images/cover-blur.jpg">
+
+	</div>
+
+	<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="src/crossfade.js"></script>
+
+	<script type="text/javascript">
+
+		$('.cover').crossfade();
+
+	</script>
+</body>
+</html>

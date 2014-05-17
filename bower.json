@@ -1,0 +1,17 @@
+{
+  "name": "crossfade",
+  "description": "",
+  "version": "0.1.0",
+  "authors": [
+    "Mike Fowler <mike@mikefowler.me>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ]
+}
