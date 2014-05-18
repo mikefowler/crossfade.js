@@ -2,22 +2,40 @@
 <html>
 <head>
 	<title>Cover</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<style type="text/css">
 		body {
 			margin: 0;
 			padding: 0;
 			height: 4000px;
+			font-family: sans-serif;
 		}
 		.cover {
-			height: 500px;
+			color: white;
 			background: #f1f1f1;
+			margin-bottom: 1000px;
+		}
+		.cover:first-child {
+			position: fixed;
+		}
+		.cover h1 {
+			margin: 0;
+			padding: 6em 0;
+			font-size: 3em;
+			position: relative;
+			text-align: center;
+			z-index: 10;
 		}
 	</style>
 </head>
 <body>
 
 	<div class="cover" data-image-start="demo/images/cover.jpg" data-image-end="demo/images/cover-blur.jpg">
+			<h1>Crossfade</h1>
+		</div>
 
+	<div class="cover" data-image-start="demo/images/cover.jpg" data-image-end="demo/images/cover-blur.jpg">
+		<h1>Crossfade</h1>
 	</div>
 
 	<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -25,7 +43,13 @@
 
 	<script type="text/javascript">
 
-		$('.cover').crossfade();
+		$(function () {
+			$('.cover').crossfade({
+				distance: 0.25,
+				backgroundPosition: 'center center',
+				// debug: true
+			});
+		});
 
 	</script>
 </body>
