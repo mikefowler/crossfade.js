@@ -308,7 +308,7 @@
 		// If we aren't already in the middle of a draw loop,
 		// request another frame.
 		if (!this.ticking) {
-			requestAnimFrame(function () {
+			window.requestAnimFrame(function () {
 				self.draw();
 			});
 		}
