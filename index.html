@@ -1,53 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>crossfade.js</title>
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="demo/style.css">
+  <title>crossfade.js</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css">
+  <link rel="stylesheet" type="text/css" href="demo/style.css">
 </head>
 <body>
 
-	<section class="js-section">
-		
-		<div class="banner js-example-1" data-image-start="demo/01.jpg" data-image-end="demo/01-blur.jpg">
-			<h1 class="js-parallax">crossfade.js</h1>
-		</div>
+  <section class="js-section">
+    
+    <div class="banner js-example-1" data-crossfade-start="demo/01.jpg" data-crossfade-end="demo/01-blur.jpg">
+      <h1 class="js-parallax">crossfade.js</h1>
+    </div>
 
-		<div class="content center">
-			<h2>Crossfade.js is a tiny (~3kb) jQuery plugin for crossfading images as you scroll down a page.</h2> 
-			<h3>Try it. Scroll down.</h3>
-			<h4>Do it. I bet you won't do it.</h4>
-		</div>
+    <div class="content center">
+      <h2>Crossfade.js is a tiny (~3kb) jQuery plugin for crossfading images as you scroll down a page.</h2> 
+      <h3>Try it. Scroll down.</h3>
+      <h4>Do it. I bet you won't do it.</h4>
+    </div>
 
-	</section>
+  </section>
 
-	<section class="js-section">
-		
-		<div class="banner js-example-2" data-image-start="demo/01.jpg" data-image-end="demo/01-blur.jpg">
-			<h1>Oooh! Neato.</h1>
-		</div>
+  <section class="js-section">
+    
+    <div class="banner js-example-2">
+      <h1>Oooh! Neato.</h1>
+    </div>
 
-		<div class="content">
-			
-			<h2 class="center">It is, isn't it? Here's how to use it.</h2>
+    <div class="content">
+      
+      <h2 class="center">It is, isn't it? Here's how to use it.</h2>
 
-			<ol>
-				<li>Initialize Crossfade on an element.</li>
-			</ol>
+<pre><code class="language-javascript">$(function () {
 
-			<p>crossfade.js is inspired and influenced by the kick-ass work of all the engineers at <a href="http://medium.com">Medium</a>.</p>
+  $('.crossfade').crossfade(options);
 
-		</div>
+});</code></pre>
 
-	</section>
+      <h3>Options</h3>
 
-	<footer>
-		<p class="content">A thing made by <a href="http://mikefowler.me">Mike Fowler</a>.</p>
-	</footer>
+      <table class="options">
+        <tr>
+          <th>start</th>
+          <td><em>required</em> The URL of the first (start) image. You can also define this property as a <code>data-crossfade-start</code> attribute on the element itself.</td>
+        </tr>
+        <tr>
+          <th>end</th>
+          <td><em>required</em> The URL of the second (end) image. You can also define this property as a <code>data-crossfade-end</code> attribute on the element itself.</td>
+        </tr>
+        <tr>
+          <th>threshold</th>
+          <td><em>Default: 0.5</em><br>A number between 0 and 1 that determines how quickly the crossfade occurs as the element scrolls off-screen</td>
+        </tr>
+        <tr>
+          <th>backgroundPosition</th>
+          <td><em>Default: 'center center'</em><br>Determines the positioning of the background images. This option functions similarly to CSS background-size.</td>
+        </tr>
+      </table>
 
-	<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="src/crossfade.jquery.js"></script>
-	<script src="demo/app.js"></script>
+      <h2 class="center">Technical Details</h2>
+
+      <p>Under the hood, Crossfade.js does the following…</p>
+
+      <ol>
+        <li>Preloads the start and ending images</li>
+        <li>Generates a <code>&lt;canvas&gt;</code> element and appends it to our element. The canvas is automatically set to cover its parent, via absolute positioning.</li>
+        <li>The starting and ending images are drawn into the <code>&lt;canvas&gt;</code> and, depending on the position of the element in the viewport, superimposed on top of one another.</li>
+        <li>Images are redraw using <code>window.requestAnimationFrame</code>, allowing for exceptionally performant rendering. Browsers that do not support <code>window.requestAnimationFrame</code> yet will fall back to a timeout loop.</li>
+      </ol>
+
+      <h2 class="center">Notes</h2>
+
+      <p>Some things to keep in mind…</p>
+
+      <ol>
+        <li>The elements you initialize Crossfade.js on must be able to contain their children. Use CSS to set the position to “relative”, “absolute” or “static”, depending on your use case.</li>
+        <li>Any content already inside the element you initialize Crossfade.js on will need to be set to “position: relative” to make sure it's visible above the injected <code>&lt;canvas&gt;</code> element.
+      </ol>
+
+    </div>
+
+  </section>
+
+  <a href="http://github.com/mikefowler/crossfade" class="github-button">View on Github</a>
+
+  <footer>
+    <p class="content">A thing made by <a href="http://mikefowler.me">Mike Fowler</a>.<br>Crossfade.js is inspired and influenced by the kick-ass work of all the engineers at <a href="http://medium.com">Medium</a>.</p>
+  </footer>
+
+  <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="src/crossfade.jquery.js"></script>
+
+  <script src="demo/app.js"></script>
+  <script src="demo/prism.js"></script>
 
 </body>
 </html>

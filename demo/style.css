@@ -1,3 +1,7 @@
+html, body {
+	height: 100%;
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -8,6 +12,16 @@ body {
 
 ul, ol {
 	padding: 0;
+}
+
+hr {
+	height: 1px;
+	border: none;
+	background: #f1f1f1;
+}
+
+a {
+	color: #3a6e8f;
 }
 
 /*
@@ -38,13 +52,49 @@ ul, ol {
 * Presentation styles
 */
 
+section {
+	min-height: 120%;
+}
+
 .content {
 	max-width: 40em;
 	margin: 0 auto;
 }
 
+.options {
+	border-collapse: collapse;
+}
+
+.options th,
+.options td {
+	padding: 0.5em;
+	border: 2px solid white;
+	background: #f8f8f8;
+}
+
+.options th {
+	text-align: left;
+	background: #f1f1f1;
+}
+
 .center {
 	text-align: center;
+}
+
+.github-button {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	padding: 0.25em 1em;
+	color: white;
+	border: 1px solid white;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+.github-button:hover {
+	background: white;
+	color: #333;
 }
 
 footer {

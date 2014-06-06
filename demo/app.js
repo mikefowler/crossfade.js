@@ -6,13 +6,10 @@ $(function () {
 	});
 
 	$('.js-example-2').crossfade({
+    start: 'demo/02.jpg',
+    end: 'demo/02-blur.jpg',
 		threshold: 0.5,
-		backgroundPosition: 'top left'
-	});
-
-	// Set the height of the sections based on the viewport height
-	$('.js-section').css({
-		height: $(window).height() * 1.2
+		backgroundPosition: 'center center'
 	});
 
 });

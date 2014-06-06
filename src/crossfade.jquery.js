@@ -28,29 +28,18 @@
 		// The start and end images can be passed in as part
 		// of the options object, or defined as data attributes
 		// on the element.
-		this.options.start = this.options.start || this.el.data('image-start');
-		this.options.end = this.options.end || this.el.data('image-end');
+		this.options.start = this.options.start || this.el.data('crossfade-start');
+		this.options.end = this.options.end || this.el.data('crossfade-end');
 
 		// Without both a start and an end image, this utility won't do much.
 		if (!this.options.start || !this.options.end) {
 			throw new Error('crossfade.js requires two images.');
 		}
 
-		// Determine the positioning of the background image. Defaults to
-		// 'center' for both X and Y. You can pass either a space-delimited
-		// string in the “backgroundPosition” option, or individually as
-		// “backgroundPositionX” and “backgroundPositionY”. Passing “backgroundPosition”
-		// will override the others.
-		if (this.options.backgroundPosition) {
-			var position = this.options.backgroundPosition.split(' ');
-
-			if (position.length === 2) {
-				this.options.backgroundPositionX = position[0];
-				this.options.backgroundPositionY = position[1];	
-			}
-			
-			delete this.options.backgroundPosition;
-		}
+		// Split the backgroundPosition option into its two components 
+		var position = this.options.backgroundPosition.split(' ');
+		this.options.backgroundPositionX = position[0];
+		this.options.backgroundPositionY = position[1];
 
 		// Cache the initial width and height of the element
 		this.width = this.el.width();
@@ -214,35 +203,34 @@
 			dimensions.height = parseInt(containerWidth * imageRatio);
 		}
 
-		// The default offset, equal to “left” for “backgroundPositionX”
-		// and “top” “backgroundPositionY”.
-		dimensions.offset = {
-			x: 0,
-			y: 0
-		};
+		dimensions.offset = {};
 
-		// If the height of the image is taller than the container…
-		if (dimensions.height > containerHeight) {
-			switch (this.options.backgroundPositionY) {
-				case 'center':
-					dimensions.offset.y = (dimensions.height - containerHeight) / -2;
-					break;
-				case 'bottom':
-					dimensions.offset.y = (dimensions.height - containerHeight) * -1;
-					break;
-			}
+		switch (this.options.backgroundPositionY) {
+			case 'top':
+				dimensions.offset.y = 0;
+				break;
+			case 'bottom':
+				dimensions.offset.y = (dimensions.height - containerHeight) * -1;
+				break;
+			case 'center':
+				// falls through
+			default:
+				dimensions.offset.y = (dimensions.height - containerHeight) / -2;
+				break;
 		}
 
-		// If the width of the image is wider than the container…
-		if (dimensions.width > containerWidth) {
-			switch (this.options.backgroundPositionX) {
-				case 'center': 
-					dimensions.offset.x = (dimensions.width - containerWidth) / -2;
-					break;
-				case 'right':
-					dimensions.offset.x = (dimensions.width - containerWidth) * -1;
-					break;
-			}
+		switch (this.options.backgroundPositionX) {
+			case 'left':
+				dimensions.offset.x = 0;
+				break;
+			case 'right':
+				dimensions.offset.x = (dimensions.width - containerWidth) * -1;
+				break;
+			case 'center':
+				// falls through
+			default: 
+				dimensions.offset.x = (dimensions.width - containerWidth) / -2;
+				break;
 		}
 
 		return dimensions;
@@ -320,7 +308,7 @@
 		// If we aren't already in the middle of a draw loop,
 		// request another frame.
 		if (!this.ticking) {
-			requestAnimationFrame(function () {
+			requestAnimFrame(function () {
 				self.draw();
 			});
 		}
@@ -356,9 +344,20 @@
 	// --------------------------------------------------------------------------
 	
 	$.fn.crossfade.defaults = {
-		backgroundPositionX: 'center',
-		backgroundPositionY: 'center',
+		backgroundPosition: 'center center',
 		threshold: 0.5
 	};
+
+	// --------------------------------------------------------------------------
+	// Polyfill window.requestAnimationFrame
+	// --------------------------------------------------------------------------
+	window.requestAnimFrame = (function(){
+  	return  window.requestAnimationFrame       ||
+          	window.webkitRequestAnimationFrame ||
+          	window.mozRequestAnimationFrame    ||
+          	function( callback ){
+            	window.setTimeout(callback, 1000 / 60);
+          	};
+	})();
 
 }));

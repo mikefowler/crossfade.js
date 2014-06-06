@@ -1,6 +1,6 @@
 {
   "name": "crossfade.jquery.js",
-  "description": "A tiny jQuery plugin for crossfading images via <canvas> as the page scrolls.",
+  "description": "Crossfade.js is a tiny (~3kb) jQuery plugin for crossfading images as you scroll down a page.",
   "version": "0.1.0",
   "authors": [
     "Mike Fowler <mike@mikefowler.me>"
