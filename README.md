@@ -1,4 +1,4 @@
-Crossfade.js is a tiny (~3kb) jQuery plugin for crossfading images as you scroll down a page. Documentation can be found on its [official page](http://mikefowler.me/crossfade).
+Crossfade.js is a tiny (~3kb) jQuery plugin for crossfading images as you scroll down a page. Documentation can be found on its [official page](http://mikefowler.me/crossfade.js).
 
 ## Author
 
