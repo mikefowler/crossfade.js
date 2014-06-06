@@ -1,0 +1,54 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	line-height: 1.5;
+	color: #555;
+}
+
+ul, ol {
+	padding: 0;
+}
+
+/*
+* Style both of the crossfade examples
+*/
+
+.banner {
+	position: relative;
+	color: white;
+	margin-bottom: 50px;
+	height: 500px;
+	background: #333;
+}
+
+.banner h1 {
+	position: absolute;
+	top: 45%;
+	left: 0;
+	width: 100%;
+	font-size: 4em;
+	margin: 0;
+	text-align: center;
+	text-shadow: 0 2px 0 #444;
+	z-index: 10;
+}
+
+/*
+* Presentation styles
+*/
+
+.content {
+	max-width: 40em;
+	margin: 0 auto;
+}
+
+.center {
+	text-align: center;
+}
+
+footer {
+	background: #f1f1f1;
+	padding: 2em 0;
+	text-align: center;
+}

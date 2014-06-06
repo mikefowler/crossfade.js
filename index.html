@@ -1,56 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Cover</title>
+	<title>crossfade.js</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<style type="text/css">
-		body {
-			margin: 0;
-			padding: 0;
-			height: 4000px;
-			font-family: sans-serif;
-		}
-		.cover {
-			color: white;
-			background: #f1f1f1;
-			margin-bottom: 1000px;
-		}
-		.cover:first-child {
-			position: fixed;
-		}
-		.cover h1 {
-			margin: 0;
-			padding: 6em 0;
-			font-size: 3em;
-			position: relative;
-			text-align: center;
-			z-index: 10;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="demo/style.css">
 </head>
 <body>
 
-	<div class="cover" data-image-start="demo/images/cover.jpg" data-image-end="demo/images/cover-blur.jpg">
-			<h1>Crossfade</h1>
+	<section class="js-section">
+		
+		<div class="banner js-example-1" data-image-start="demo/01.jpg" data-image-end="demo/01-blur.jpg">
+			<h1 class="js-parallax">crossfade.js</h1>
 		</div>
 
-	<div class="cover" data-image-start="demo/images/cover.jpg" data-image-end="demo/images/cover-blur.jpg">
-		<h1>Crossfade</h1>
-	</div>
+		<div class="content center">
+			<h2>Crossfade.js is a tiny (~3kb) jQuery plugin for crossfading images as you scroll down a page.</h2> 
+			<h3>Try it. Scroll down.</h3>
+			<h4>Do it. I bet you won't do it.</h4>
+		</div>
+
+	</section>
+
+	<section class="js-section">
+		
+		<div class="banner js-example-2" data-image-start="demo/01.jpg" data-image-end="demo/01-blur.jpg">
+			<h1>Oooh! Neato.</h1>
+		</div>
+
+		<div class="content">
+			
+			<h2 class="center">It is, isn't it? Here's how to use it.</h2>
+
+			<ol>
+				<li>Initialize Crossfade on an element.</li>
+			</ol>
+
+			<p>crossfade.js is inspired and influenced by the kick-ass work of all the engineers at <a href="http://medium.com">Medium</a>.</p>
+
+		</div>
+
+	</section>
+
+	<footer>
+		<p class="content">A thing made by <a href="http://mikefowler.me">Mike Fowler</a>.</p>
+	</footer>
 
 	<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="src/crossfade.js"></script>
+	<script src="src/crossfade.jquery.js"></script>
+	<script src="demo/app.js"></script>
 
-	<script type="text/javascript">
-
-		$(function () {
-			$('.cover').crossfade({
-				distance: 0.25,
-				backgroundPosition: 'center center',
-				// debug: true
-			});
-		});
-
-	</script>
 </body>
 </html>

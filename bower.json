@@ -1,17 +1,14 @@
 {
-  "name": "crossfade",
-  "description": "",
+  "name": "crossfade.jquery.js",
+  "description": "A tiny jQuery plugin for crossfading images via <canvas> as the page scrolls.",
   "version": "0.1.0",
   "authors": [
     "Mike Fowler <mike@mikefowler.me>"
   ],
+  "main": "dist/crossfade.jquery.js",
   "license": "MIT",
   "ignore": [
     "**/.*",
-    "node_modules",
-    "bower_components",
-    "vendor",
-    "test",
-    "tests"
+    "node_modules"
   ]
 }

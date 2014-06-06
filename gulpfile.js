@@ -1,11 +1,14 @@
 var gulp = require('gulp');
 var eslint = require('gulp-eslint');
+var size = require('gulp-size');
+var uglify = require('gulp-uglify');
 
 // -----------------------------------------------------------------------------
 // Configuration
 // -----------------------------------------------------------------------------	
 
 var paths = {
+	src: 'src/*.js',
 	dist: 'dist'
 };
 
@@ -13,22 +16,27 @@ var paths = {
 // Assets
 // -----------------------------------------------------------------------------
 
-
+gulp.task('uglify', function () {
+	return gulp.src(paths.src)
+		.pipe(uglify({
+			compress: {
+				drop_console: true
+			}
+		}))
+		.pipe(size())
+		.pipe(gulp.dest(paths.dist));
+});
 
 // -----------------------------------------------------------------------------
 // Testing
 // -----------------------------------------------------------------------------
 gulp.task('lint', function () {
-	return gulp.src('src/**/*.js')
+	return gulp.src(paths.src)
 		.pipe(eslint({
 			rules: {
 				'quotes': 'single',
 				'no-global-strict': 0,
 				'no-console': 0
-			},
-			globals: {
-				'require': true,
-				'module': true
 			},
 			env: {
 				browser: true
@@ -41,8 +49,9 @@ gulp.task('lint', function () {
 // Tasks
 // -----------------------------------------------------------------------------
 gulp.task('watch', function () {
-	gulp.watch('src/{,**/}*.js', ['test']);
+	gulp.watch(paths.src, ['build']);
 });
 
 gulp.task('test', ['lint']);
-gulp.task('default', ['test', 'watch']);
+gulp.task('build', ['test', 'uglify']);
+gulp.task('default', ['build', 'watch']);
