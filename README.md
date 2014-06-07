@@ -8,4 +8,4 @@ Crossfade.js is a tiny (~3kb) jQuery plugin for crossfading images as you scroll
 
 Copyright (c) 2014 [Mike Fowler](http://github.com/mikefowler)
 
-Released under the MIT license. See [LICENSE](https://github.com/mikefowler/crossfade/blob/master/LICENSE) for details.
+Released under the MIT license. See [LICENSE](https://github.com/mikefowler/crossfade.js/blob/master/LICENSE) for details.
