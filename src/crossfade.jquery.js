@@ -139,6 +139,10 @@
 		// and height are updated on window resize events.
 		this.canvas[0].width = this.width;
 		this.canvas[0].height = this.height;
+		this.canvas.css({
+			width: this.width,
+			height: this.height
+		});
 		
 	};
 
@@ -168,7 +172,7 @@
 
 		// Draw the starting image…
 		this.paintbrush.drawImage(this.start[0], dimensions.offset.x, dimensions.offset.y, dimensions.width, dimensions.height);
-
+		
 		// Set the global opacity based on the visibility of our element…
 		this.paintbrush.globalAlpha = this.visibility;
 		
@@ -190,7 +194,7 @@
 	// --------------------------------------------------------------------------
 
 	Crossfade.prototype.getDrawDimensions = function (imageWidth, imageHeight, containerWidth, containerHeight) {
-			
+		
 		var dimensions = {};
 		var imageRatio = imageHeight / imageWidth;
 		var containerRatio = containerHeight / containerWidth;
