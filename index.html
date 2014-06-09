@@ -32,7 +32,13 @@
       
       <h2 class="center">It is, isn't it? Here's how to use it.</h2>
 
-<pre><code class="language-javascript">$(function () {
+      <p>Download <a href="https://github.com/mikefowler/crossfade.js">the source code</a> or install it with Bower…</p>
+
+      <pre><code class="language-bash">bower install crossfade.js</code></pre>
+
+      <p>And initialize it…</p>
+
+      <pre><code class="language-javascript">$(function () {
 
   $('.crossfade').crossfade(options);
 
@@ -67,7 +73,7 @@
         <li>Preloads the start and ending images</li>
         <li>Generates a <code>&lt;canvas&gt;</code> element and appends it to our element. The canvas is automatically set to cover its parent, via absolute positioning.</li>
         <li>The starting and ending images are drawn into the <code>&lt;canvas&gt;</code> and, depending on the position of the element in the viewport, superimposed on top of one another.</li>
-        <li>Images are redraw using <code>window.requestAnimationFrame</code>, allowing for exceptionally performant rendering. Browsers that do not support <code>window.requestAnimationFrame</code> yet will fall back to a timeout loop.</li>
+        <li>Images are redrawn using <code>window.requestAnimationFrame</code>, allowing for exceptionally performant rendering. Browsers that do not support <code>window.requestAnimationFrame</code> yet will fall back to a timeout loop.</li>
       </ol>
 
       <h2 class="center">Notes</h2>
@@ -75,8 +81,18 @@
       <p>Some things to keep in mind…</p>
 
       <ol>
-        <li>The elements you initialize Crossfade.js on must be able to contain their children. Use CSS to set the position to “relative”, “absolute” or “static”, depending on your use case.</li>
-        <li>Any content already inside the element you initialize Crossfade.js on will need to be set to “position: relative” to make sure it's visible above the injected <code>&lt;canvas&gt;</code> element.
+        <li>The elements you initialize Crossfade.js on must be able to contain their children. Use CSS to set the position to “relative”, “absolute” or “fixed”, depending on your use case.</li>
+        <li>Any content already inside the element you initialize Crossfade.js on will need to be set to “position: relative” to make sure it's visible above the injected <code>&lt;canvas&gt;</code> element:
+        <pre><code class="language-markup">&lt;div class=&quot;cover&quot;&gt;
+
+  &lt;div class=&quot;cover-content&quot; style=&quot;position: relative;&quot;&gt;
+    &lt;h1&gt;Make sure I&#039;m above the background!&lt;/h1&gt;
+  &lt;/div&gt;
+
+  &lt;!-- I get injected by crossfade.js --&gt;
+  &lt;canvas&gt;&lt;/canvas&gt; 
+
+&lt;/div&gt;</code></pre></li>
       </ol>
 
     </div>

@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var eslint = require('gulp-eslint');
 var size = require('gulp-size');
 var uglify = require('gulp-uglify');
+var connect = require('gulp-connect');
 
 // -----------------------------------------------------------------------------
 // Configuration
@@ -15,6 +16,11 @@ var paths = {
 // -----------------------------------------------------------------------------
 // Assets
 // -----------------------------------------------------------------------------
+gulp.task('connect', function () {
+	connect.server({
+		port: 7300
+	});
+});
 
 gulp.task('uglify', function () {
 	return gulp.src(paths.src)
@@ -54,4 +60,4 @@ gulp.task('watch', function () {
 
 gulp.task('test', ['lint']);
 gulp.task('build', ['test', 'uglify']);
-gulp.task('default', ['build', 'watch']);
+gulp.task('default', ['build', 'connect', 'watch']);
