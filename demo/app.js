@@ -2,7 +2,7 @@ $(function () {
 		
 	// Initialize both crossfade examples
 	$('.js-example-1').crossfade({
-		threshold: 0.2,
+		threshold: 0.2
 	});
 
 	$('.js-example-2').crossfade({
