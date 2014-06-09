@@ -1,14 +1,33 @@
 {
-  "name": "crossfade.jquery.js",
-  "description": "Crossfade.js is a tiny (~3kb) jQuery plugin for crossfading images as you scroll down a page.",
+  "name": "crossfade.js",
   "version": "0.1.0",
+  "description": "Crossfade.js is a tiny (~3kb) jQuery plugin for crossfading images as you scroll down a page.",
+  "homepage": "https://mikefowler.me/crossfade.js",
+  "main": [
+    "dist/crossfade.jquery.js"
+  ],
   "authors": [
     "Mike Fowler <mike@mikefowler.me>"
   ],
-  "main": "dist/crossfade.jquery.js",
+  "keywords": [
+    "canvas",
+    "crossfade",
+    "blur",
+    "jquery",
+    "jquery plugin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikefowler/crossfade.js.git"
+  },
   "license": "MIT",
   "ignore": [
     "**/.*",
-    "node_modules"
+    "node_modules",
+    "demo",
+    "src",
+    "gulpfile.js",
+    "index.html",
+    "package.json"
   ]
 }

@@ -1,7 +1,5 @@
 {
-  "name": "crossfade.jquery.js",
-  "version": "0.1.0",
-  "description": "Crossfade.js is a tiny (~3kb) jQuery plugin for crossfading images as you scroll down a page.",
+  "name": "crossfade.js",
   "dependencies": {
     "gulp": "~3.6.2"
   },
@@ -11,7 +9,5 @@
     "gulp-uglify": "~0.3.0",
     "gulp-size": "~0.3.1"
   },
-  "private": true,
-  "author": "Mike Fowler <mike@mikefowler.me>",
-  "license": "MIT"
+  "private": true
 }
