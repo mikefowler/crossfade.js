@@ -251,7 +251,7 @@
 	Crossfade.prototype.onScroll = function () {
 
 		var scrollTop = $(window).scrollTop();
-    var elementOffsetTop = this.el.offset().top;
+    var elementOffsetTop = this.el.offset().top - this.options.offset;
     var elementHeight = this.el.height();
     var percentage;
 
@@ -349,7 +349,8 @@
 	
 	$.fn.crossfade.defaults = {
 		backgroundPosition: 'center center',
-		threshold: 0.5
+		threshold: 0.5,
+		offset: 0
 	};
 
 	// --------------------------------------------------------------------------
